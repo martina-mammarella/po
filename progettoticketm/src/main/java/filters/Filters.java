@@ -2,7 +2,7 @@ package filters;
 import java.util.Vector;
 import java.util.List;
 import org.json.simple.JSONObject;
-
+import evento.modello.*;
 import exception.NotFoundException;
 
 import org.json.simple.*;
@@ -36,7 +36,7 @@ public class Filters {
 		if(filtroFornito.containsKey("type")) {
 			Filters x= new Filters();
 			String type=(String)valoreFiltro.get("type");
-			for(String t:f.parseString(type)) {
+			for(String t:x.parseString(type)) {
 				Filters x1=new FiltersType(t);
 				fType.add(x1);
 			}
@@ -52,7 +52,9 @@ public class Filters {
 	public List<Filters> getFilters(){
 		return f;
 	}
-	//getfiltercountryefiltertype
+	public void filtraggio(List<Eventi> dafiltrare, List<Eventi>filtrato ) {};
+	
+	
 	
 
 }
