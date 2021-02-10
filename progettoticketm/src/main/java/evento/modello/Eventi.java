@@ -1,8 +1,5 @@
 package evento.modello;
-
 public class Eventi {
-
-
  private String id ;
  private String nome;
  private String stato;
