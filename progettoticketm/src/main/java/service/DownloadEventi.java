@@ -1,19 +1,18 @@
 package service;
+import java.lang.*;
 import evento.modello.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
+import org.json.simple.*;
+import org.json.simple.JSONObject;
+import java.util.*;
 import java.util.List;
 import java.util.Vector;
 import exception.NotFoundException;
+import org.json.simple.parser.*;
+import java.net.URL;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import javax.net.ssl.HttpsURLConnection;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-
-
+import exception.NotFoundException;
 public class DownloadEventi {
 	String url="https://app.ticketmaster.com/discovery/v2/events.json?&apikey=EJXHVvfXe25d3dcivdfutpAiC4MIkeE3";
 	public List<Eventi> scaricoeventi(String url) {
@@ -34,12 +33,11 @@ public class DownloadEventi {
 				
 			}
 			in.close();
-		}catch(NotFoundException e) {
-			e.printStackTrace();
-		}catch(Exception e ){
-			e.printStackTrace();
+		}
+		catch(Exception e ){
+			e.printStackTrace();}
 			
-		}return eventiscaricati;
+		return eventiscaricati;
 		
 		}
 	private void costruttoreeventi(JSONArray a,List<Eventi>eventiscaricati) {
@@ -47,7 +45,11 @@ public class DownloadEventi {
 			JSONObject evento=(JSONObject)o;
 			String id=(String)evento.get("id");
 			String nome=(String)evento.get("nome");
-			Eventi x= new Evento(id,nome);
+			String CountryCode=(String)evento.get("CountryCode");
+			String data=(String)evento.get("dateTime");
+			String indirizzo=(String)evento.get("address");
+			String type=(String)evento.get("genre");
+			Eventi x= new Eventi(id,nome,CountryCode,indirizzo,data,type);
 			eventiscaricati.add(x);
 			//mancanoaltri
 			
@@ -63,4 +65,4 @@ public class DownloadEventi {
 
 
 
-}
+
