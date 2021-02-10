@@ -4,17 +4,12 @@ import evento.modello.*;
 import org.json.simple.*;
 import org.json.simple.JSONObject;
 public class Generi extends Stats{
-  private JSONObject genere;
+  
   public Generi(List<Eventi> eventi) {
 	  super(eventi);
-	  setGenere(null);
+	 
   }
-  public void setGenere( JSONObject genere) {
-	  this.genere=genere;
-  }
-  public JSONObject getGenere() {
-	  return genere;
-  }
+  
   public void statsGenere() {
 	  int m=0;;
 	  int a=0;
@@ -32,6 +27,6 @@ public class Generi extends Stats{
 	  y.put("arte e teatro", a);
 	  y.put("festival", f);
 	  y.put("tempolibero", tl);
-	  this.setGenere(y);
+	  super.setStatsObject(y);
   }
 }

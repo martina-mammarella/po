@@ -16,5 +16,6 @@ public class Totale extends Stats{
 	public void calcolototale() {
 		int tot=super.eventi.size();
 	}
+	
 
 }
