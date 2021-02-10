@@ -4,7 +4,6 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import evento.modello.*;
 import exception.NotFoundException;
-
 import org.json.simple.*;
 
 public class Filters {
@@ -26,7 +25,7 @@ public class Filters {
 	public void parsingFilteres (JSONObject filtroFornito) {
 		if(filtroFornito.containsKey("countryCode")) {
 			Filters x= new Filters();
-		String countryCode=valoreFiltro.get("countryCode");
+		String countryCode=(String)filtroFornito.get("countryCode");
 		for(String c:x.parseString(countryCode)) {
 			Filters xCountry=new FiltersCountry(c);
 			fCountry.add(xCountry);
@@ -35,7 +34,7 @@ public class Filters {
 		}
 		if(filtroFornito.containsKey("type")) {
 			Filters x= new Filters();
-			String type=(String)valoreFiltro.get("type");
+			String type=(String)filtroFornito.get("type");
 			for(String t:x.parseString(type)) {
 				Filters x1=new FiltersType(t);
 				fType.add(x1);
