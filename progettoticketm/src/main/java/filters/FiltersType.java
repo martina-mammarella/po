@@ -14,7 +14,7 @@ public class FiltersType extends Filters  {
 	}
 	public void filtraggio(List<Eventi> dafiltrare,List<Eventi> filtrato) {
 		for(Eventi a:dafiltrare) {
-			if(a.getType()contais(valoreFiltro)&&! dafiltrare.contains(a)) {
+			if(a.getType().equals(valoreFiltro)&&! dafiltrare.contains(a)) {
 				filtrato.add(a);
 			}
 		}
