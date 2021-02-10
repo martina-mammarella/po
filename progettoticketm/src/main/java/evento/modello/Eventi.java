@@ -9,14 +9,16 @@ public class Eventi {
  private String indirizzo;
  private  String data;
  private String type;
+ private String state;
  //private String souce;
- public Eventi (String id,String nome,String stato,String indirizzo,String data,String type) {
+ public Eventi (String id,String nome,String stato,String indirizzo,String data,String type,String state) {
   setId(id);
   setNome(nome);
   setStato(stato);
   setIndirizzo(indirizzo);
   setData(data);
   setType(type);
+  setState(state);
   //setSource(source);
 				
 			}
@@ -38,6 +40,9 @@ public class Eventi {
  private void setType(String type) {
 	 this.type=type;
  }
+ private void setState(String state) {
+	 this.state=state;
+ }
 // private void setSource(String source) {
  // this.source=source;}
 			
@@ -58,6 +63,9 @@ public class Eventi {
 			}
  public String getType() {
 	 return type;
+ }
+ public String getState() {
+	 return state;
  }
  //public String getSource() {
   //return source;}
