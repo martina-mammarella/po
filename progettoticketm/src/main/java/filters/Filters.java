@@ -7,12 +7,12 @@ import exception.NotFoundException;
 import org.json.simple.*;
 
 public class Filters {
+	protected String valoreFiltro;
 	protected List<Filters>f= new Vector<>();
 	protected List<Filters>fCountry= new Vector<>();
 	protected List<Filters>fType= new Vector<>();
-	protected String valoreFiltro;
 	public Filters() {};
-	public Filters(String valoreFiltro) {
+;	public Filters(String valoreFiltro) {
 		setValoreFiltro(valoreFiltro);
 	}
 	protected void setValoreFiltro(String valoreFiltro) {
@@ -22,10 +22,10 @@ public class Filters {
 		return valoreFiltro;
 	}
 	
-	public void parsingFilteres (JSONObject filtroFornito) {
+	public void parseFilteres(JSONObject filtroFornito) {
 		if(filtroFornito.containsKey("countryCode")) {
+			String countryCode=(String)filtroFornito.get("countryCode");
 			Filters x= new Filters();
-		String countryCode=(String)filtroFornito.get("countryCode");
 		for(String c:x.parseString(countryCode)) {
 			Filters xCountry=new FiltersCountry(c);
 			fCountry.add(xCountry);
@@ -51,9 +51,14 @@ public class Filters {
 	public List<Filters> getFilters(){
 		return f;
 	}
-	public void filtraggio(List<Eventi> dafiltrare, List<Eventi>filtrato ) {};
+	public  void filtraggio(List<Eventi> dafiltrare, List<Eventi>filtrato ) {};
 	
-	
+	public List<Filters>  getFiltersCountry() {
+		return fCountry;
+	}
+	public List<Filters>  getFiltersType() {
+		return fType;
+	}
 	
 
 }
